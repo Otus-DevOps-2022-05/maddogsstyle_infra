@@ -4,7 +4,7 @@
             "type": "yandex",
             "service_account_key_file": "./key.json",
             "folder_id": "b1grbdil1gurdt2q4rvj",
-            "source_image_family": "ubuntu-2004-lts",
+            "source_image_family": "ubuntu-1604-lts",
             "image_name": "reddit-full-{{timestamp}}",
             "image_family": "reddit-full",
             "ssh_username": "ubuntu",
@@ -33,12 +33,12 @@
   "type": "shell",
   "inline": [
       "sudo mv /tmp/puma.service /etc/systemd/system/puma.service",
-      "cd /opt",
-      "sudo apt-get install -y git",
-      "sudo chmod -R 0777 /opt",
+      "cd /home",
+      "sudo apt-get update && sudo apt-get install -y git",
+      "sudo chmod -R 0777 /home",
       "git clone -b monolith https://github.com/express42/reddit.git",
       "cd reddit && bundle install",
-      "sudo systemctl daemon-reload && sudo systemctl start puma && sudo systemctl enable puma"
+      "sudo puma -d"
   ]
 }
     ]
