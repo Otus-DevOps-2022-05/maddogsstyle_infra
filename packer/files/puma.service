@@ -6,7 +6,6 @@ After=network.target
 [Service]
 Type=simple
 WorkingDirectory=/opt/reddit
-User={username}
 ExecStart=/usr/local/bin/puma
 Restart=always
 
