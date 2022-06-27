@@ -1,5 +1,5 @@
 {
-  "key": "files/key.json",
+  "key": "/key.json",
   "fid": "kvakkvakkvak",
   "image": "ubuntu-1604-lts",
   "disk_size_gb": "15"
