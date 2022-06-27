@@ -1,0 +1,28 @@
+# username
+# appname
+# gemset
+
+[Unit]
+Description=Puma HTTP Server
+After=network.target
+
+[Service]
+Type=forking
+WorkingDirectory=/home/{username}/apps/{appname}/current
+PIDFile=/home/{username}/apps/{appname}/shared/tmp/pids/puma.pid
+User={username}
+Group={usergroup}
+
+ExecStart=/home/{username}/.rvm/bin/rvm 2.3.3@{gemset} do bundle exec puma -C /home/{username}/apps/{appname}/shared/puma.rb --daemon
+ExecStop=/home/{username}/.rvm/bin/rvm 2.3.3@{gemset} do bundle exec pumactl -S /home/{username}/apps/{appname}/shared/tmp/pids/puma.state stop
+ExecReload=/home/{username}/.rvm/bin/rvm 2.3.3@{gemset} do bundle exec pumactl -S /home/{username}/apps/{appname}/shared/tmp/pids/puma.state restart
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+# systemctl status puma.service
+# systemctl enable puma.service
+# systemctl -l status puma.service
+# systemctl daemon-reload
+# systemd-analyze verify puma.service
