@@ -33,7 +33,7 @@ connection {
   user = "ubuntu"
   agent = false
   # путь до приватного ключа
-  private_key = file("~/.ssh/ubuntu")
+  private_key = file(var.private_key_path)
   }
 
 provisioner "file" {
