@@ -1,4 +1,4 @@
-variable cloud_id{
+variable cloud_id {
   description = "Cloud"
 }
 variable folder_id {
@@ -6,7 +6,7 @@ variable folder_id {
 }
 variable zone {
   description = "Zone"
-  default = "ru-central1-a"
+  default     = "ru-central1-a"
 }
 variable public_key_path {
   # Описание переменной
@@ -15,12 +15,16 @@ variable public_key_path {
 variable image_id {
   description = "Disk image"
 }
-variable subnet_id{
+variable subnet_id {
   description = "Subnet"
 }
-variable service_account_key_file{
+variable service_account_key_file {
   description = "key .json"
 }
-variable private_key_path{
+variable private_key_path {
   description = "path to private ssh key"
+}
+variable copies {
+  description = "number of instances"
+  default     = "1"
 }
