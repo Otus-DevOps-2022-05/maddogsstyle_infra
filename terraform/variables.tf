@@ -6,7 +6,6 @@ variable folder_id {
 }
 variable zone {
   description = "Zone"
-  # Значение по умолчанию
   default = "ru-central1-a"
 }
 variable public_key_path {
@@ -21,4 +20,7 @@ variable subnet_id{
 }
 variable service_account_key_file{
   description = "key .json"
+}
+variable private_key_path{
+  description = "path to private ssh key"
 }
