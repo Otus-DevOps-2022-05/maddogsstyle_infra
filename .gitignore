@@ -12,4 +12,3 @@
 /terraform/*.tfstate
 /terraform/stage/key1.json
 terraform/prod/key1.json
-*.envrc
