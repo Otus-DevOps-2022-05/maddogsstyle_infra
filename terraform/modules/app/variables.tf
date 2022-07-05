@@ -8,3 +8,10 @@ variable app_disk_image {
 variable subnet_id {
 description = "Subnets for modules"
 }
+variable db_ip {
+  description = "database IP"
+}
+variable private_key_path {
+  description = "Path to the private key used for ssh access"
+    default = "~/.ssh/ubuntu"
+}
