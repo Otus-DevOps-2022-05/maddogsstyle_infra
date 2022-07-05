@@ -8,5 +8,5 @@
 *.backup
 /packer/key.json
 /terraform/backup/
-*.tfstate
-*.tfstate.*.backup
+/terraform/*.tfstate.backup
+/terraform/*.tfstate
