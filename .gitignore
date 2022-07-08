@@ -5,3 +5,6 @@
 *.tfvars
 .terraform/
 /terraform/key1.json
+*.backup
+/packer/key.json
+/terraform/backup/

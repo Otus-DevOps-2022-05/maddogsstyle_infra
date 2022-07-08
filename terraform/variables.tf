@@ -8,23 +8,15 @@ variable zone {
   description = "Zone"
   default     = "ru-central1-a"
 }
-variable public_key_path {
-  # Описание переменной
-  description = "Path to the public key used for ssh access"
+variable access {
+  description = "access"
 }
-variable image_id {
-  description = "Disk image"
+variable security {
+  description = "security"
 }
-variable subnet_id {
-  description = "Subnet"
+variable name {
+  description = "name"
 }
 variable service_account_key_file {
   description = "key .json"
-}
-variable private_key_path {
-  description = "path to private ssh key"
-}
-variable copies {
-  description = "number of instances"
-  default     = "1"
 }
