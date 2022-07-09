@@ -8,3 +8,5 @@
 *.backup
 /packer/key.json
 /terraform/backup/
+/terraform/prod/key1.json
+/terraform/stage/key1.json
