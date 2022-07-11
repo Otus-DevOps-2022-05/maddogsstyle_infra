@@ -5,7 +5,7 @@
             "service_account_key_file": "./key.json",
             "folder_id": "b1grbdil1gurdt2q4rvj",
             "source_image_family": "ubuntu-1604-lts",
-            "image_name": "reddit-db-base{{timestamp}}",
+            "image_name": "reddit-db-base-{{timestamp}}",
             "image_family": "reddit-db-base",
             "ssh_username": "ubuntu",
             "use_ipv4_nat": "true",
