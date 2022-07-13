@@ -9,7 +9,6 @@ sudo rm /var/lib/dpkg/lock-frontend
 sudo dpkg --configure -a
 sudo apt-get install -y git
 git clone -b monolith https://github.com/express42/reddit.git $APP_DIR/reddit
-sudo chmod -R 0777 /home
 cd $APP_DIR/reddit
 bundle install
 sudo mv /tmp/puma.service /etc/systemd/system/puma.service
