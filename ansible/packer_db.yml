@@ -13,4 +13,3 @@
     systemd:
       name: mongodb
       enabled: yes
-      
