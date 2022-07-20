@@ -16,3 +16,4 @@ compose:
 groups:
   app: labels['tags'] == 'reddit-app'
   db: labels['tags'] == 'reddit-db'
+  
