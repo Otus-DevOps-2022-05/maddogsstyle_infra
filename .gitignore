@@ -10,3 +10,4 @@
 /terraform/backup/
 /terraform/prod/key.json
 /terraform/stage/key.json
+*.retry
