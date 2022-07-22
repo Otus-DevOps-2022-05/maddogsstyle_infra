@@ -1,20 +1,29 @@
 ---
 
 name: Validate Terraform
-
 on:
   push:
   pull_request:
 
 jobs:
   terraform-validate:
-    runs-on: ubuntu-latest
+defaults:
+  run:
+    working-directory: terraform/stage terraform/prod
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+steps:
+- uses: actions/checkout@v2
+- uses: hashicorp/setup-terraform@v2
 
-    - name: Validate Terraform modules
-      uses: devops-infra/action-terrraform-validate@v0.3
-      with:
-        dir_filter: terraform/stage,terraform/prod
+- name: Terraform fmt
+  id: fmt
+  run: terraform fmt -check
+  continue-on-error: true
+
+- name: Terraform Init
+  id: init
+  run: terraform init
+
+- name: Terraform Validate
+  id: validate
+  run: terraform validate -no-color
