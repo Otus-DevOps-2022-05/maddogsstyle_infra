@@ -8,7 +8,8 @@ jobs:
     runs-on: ubuntu-latest
 
     defaults:
-      working-directory: ./terraform/stage
+      run:
+        working-directory: ./terraform/stage
 
     steps:
       - name: Checkout Repository
