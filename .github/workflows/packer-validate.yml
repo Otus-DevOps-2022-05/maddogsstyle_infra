@@ -22,3 +22,4 @@ jobs:
           command: validate
           arguments: -syntax-only
           target: app.json db.json
+          working_directory: ./packer
