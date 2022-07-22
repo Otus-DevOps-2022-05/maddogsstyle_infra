@@ -7,7 +7,6 @@ on:
 jobs:
   terraform:
     runs-on: ubuntu-latest
-    name: terraform
 
     steps:
         uses: hashicorp/setup-terraform@v2.0.0
