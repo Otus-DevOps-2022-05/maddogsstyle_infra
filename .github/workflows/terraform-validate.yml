@@ -4,7 +4,7 @@ on:
   pull_request:
 
 jobs:
-  terraform:
+  terraform-stage:
     runs-on: ubuntu-latest
 
     defaults:
@@ -18,10 +18,15 @@ jobs:
       - name: HashiCorp - Setup Terraform
         uses: hashicorp/setup-terraform@v2.0.0
 
-      - name: Terraform fmt
+      - name: Terraform fmt check
         id: fmt
         run: terraform fmt -check
         continue-on-error: true
+
+      - name: Terraform fmt
+        id: fmt
+        run: terraform fmt
+
 
       - name: Terraform Init
         id: init
@@ -30,3 +35,34 @@ jobs:
       - name: Terraform Validate
         id: validate
         run: terraform validate -no-color
+  terraform-prod:
+      runs-on: ubuntu-latest
+
+      defaults:
+        run:
+          working-directory: ./terraform/prod
+
+      steps:
+        - name: Checkout Repository
+          uses: actions/checkout@v2
+
+        - name: HashiCorp - Setup Terraform
+          uses: hashicorp/setup-terraform@v2.0.0
+
+        - name: Terraform fmt check
+          id: fmt
+          run: terraform fmt -check
+          continue-on-error: true
+
+        - name: Terraform fmt
+          id: fmt
+          run: terraform fmt
+
+
+        - name: Terraform Init
+          id: init
+          run: terraform init
+
+        - name: Terraform Validate
+          id: validate
+          run: terraform validate -no-color
