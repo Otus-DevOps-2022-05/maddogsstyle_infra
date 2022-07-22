@@ -19,7 +19,7 @@ jobs:
         uses: hashicorp/setup-terraform@v2.0.0
 
       - name: Terraform fmt check
-        id: fmt
+        id: fmt-check
         run: terraform fmt -check
         continue-on-error: true
 
@@ -50,7 +50,7 @@ jobs:
           uses: hashicorp/setup-terraform@v2.0.0
 
         - name: Terraform fmt check
-          id: fmt
+          id: fmt-check
           run: terraform fmt -check
           continue-on-error: true
 
