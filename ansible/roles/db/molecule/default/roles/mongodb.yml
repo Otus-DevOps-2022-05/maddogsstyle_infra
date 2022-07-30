@@ -1,0 +1,13 @@
+---
+- name: "mongodb - check if running and enabled"
+  systemd:
+    name: mongodb
+    state: started
+    enabled: yes
+  check_mode: yes
+  register: mongodb
+
+- name: "mongodb - running and enabled"
+  assert:
+    that:
+      - not mongodb.changed

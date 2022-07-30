@@ -1,0 +1,14 @@
+- name: check port
+  wait_for:
+    host: localhost
+    port: "27017"
+    state: started         # Port should be open
+    delay: 0               # No wait before first check (sec)
+    timeout: 3             # Stop checking after timeout (sec)
+  ignore_errors: yes
+  register: port
+
+- name: "port open"
+  assert:
+    that:
+      - not port.failed

@@ -1,0 +1,19 @@
+---
+- name: "config - check if exists"
+  stat:
+    path: "/etc/mongodb.conf"
+  register: config
+
+- name: "config exists"
+  assert:
+    that:
+      - "config.stat.exists"
+
+- name: "Ensure config contains bindip"
+  lineinfile:
+    name: /etc/mongodb.conf
+    regexp: "bindIp: 127.0.0.1"
+    state: absent
+  check_mode: yes
+  register: conf
+  failed_when: (conf is changed) or (conf is failed)

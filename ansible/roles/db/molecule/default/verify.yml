@@ -1,0 +1,13 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+  - name: Example assertion
+    ansible.builtin.assert:
+      that: true
+  - include_tasks: roles/mongodb.yml
+  - include_tasks: roles/config.yml
+  - include_tasks: roles/port.yml
